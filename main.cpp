@@ -42,8 +42,34 @@ void agregar_texto() {
     }
 }
 
+void buscar_archivo_mas_pequeno(std::string ruta_carpeta) {
+    std::filesystem::path ruta(ruta_carpeta);
+    if (std::filesystem::exists(ruta) && std::filesystem::is_directory(ruta)) {
+        std::filesystem::path archivo_mas_pequeno;
+        int tamano_mas_pequeno = INT_MAX;
+        for (const auto& archivo : std::filesystem::directory_iterator(ruta)) {
+            if (std::filesystem::is_regular_file(archivo)) {
+                int tamano_actual = std::filesystem::file_size(archivo);
+                if (tamano_actual < tamano_mas_pequeno) {
+                    archivo_mas_pequeno = archivo.path();
+                    tamano_mas_pequeno = tamano_actual;
+                }
+            }
+        }
+        if (!archivo_mas_pequeno.empty()) {
+            std::cout << "El archivo mas pequeno en la carpeta " << ruta_carpeta << " es: " << archivo_mas_pequeno << std::endl;
+        } else {
+            std::cout << "No se encontraron archivos en la carpeta " << ruta_carpeta << std::endl;
+        }
+    } else {
+        std::cout << "La ruta proporcionada no es valida o no es una carpeta" << std::endl;
+    }
+}
 int main() {
      crear_archivos();
      agregar_texto();
+    buscar_archivo_mas_pequeno("C:\\Users\\enamo\\OneDrive\\Documentos\\par");
+    buscar_archivo_mas_pequeno("C:\\Users\\enamo\\OneDrive\\Escritorio\\impar");
     return 0;
 }
+
