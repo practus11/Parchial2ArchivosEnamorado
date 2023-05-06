@@ -1,0 +1,3 @@
+C:/Users/enamo/CLionProjects/Parcial2ArchivosEnamorado/cmake-build-debug/CMakeFiles/Parcial2ArchivosEnamorado.dir
+C:/Users/enamo/CLionProjects/Parcial2ArchivosEnamorado/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/enamo/CLionProjects/Parcial2ArchivosEnamorado/cmake-build-debug/CMakeFiles/rebuild_cache.dir
